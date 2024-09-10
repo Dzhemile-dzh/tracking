@@ -69,7 +69,7 @@ app.post('/tasks', async (req, res) => {
 });
 
 // Get all tasks
-app.get('/tasks', async (req, res) => {
+app.get('/tasks', authenticate , async (req, res) => {
   const tasks = await Task.find();
   res.json(tasks);
 });
