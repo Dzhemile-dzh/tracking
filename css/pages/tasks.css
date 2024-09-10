@@ -1,0 +1,84 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+thead {
+  background-color: #232946;
+  color: #fff;
+}
+
+thead th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #b8c1ec;
+}
+
+li {
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+input[type="checkbox"] {
+  accent-color: #c75881; 
+  transform: scale(1.2);
+}
+
+button {
+  background-color: #232946;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.delete {
+  background-color: #7b4c51;
+}
+
+button.delete:hover {
+  background-color: #c82333;
+}
+
+button.view-details {
+  background-color: #ecb8cb;
+  color: #232946;
+}
+
+button.view-details:hover {
+  background-color: #7d3d54;
+}
+
+button.add-button {
+  background-color: #c75881;
+}
+
+button.add-button:hover {
+  background-color: #0a1649;
+}
+
+a.add-button-a {
+  text-decoration: none;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Task</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/pages/task-form.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New Task</h2>
+    <form id="taskForm">
+      <label>Title: <input type="text" id="taskTitle" required></label>
+      <label>Description: <textarea id="taskDescription"></textarea></label>
+      <label>Time Estimate: <input type="number" id="taskTime" required></label>
+      <div id="subtasks">
+        <label>Subtask: <input type="text" class="subtask"></label>
+      </div>
+      <button id="addSubtask" type="button">Add Subtask</button>
+      <button type="submit">Save Task</button>
+    </form>
+  </div>
+  <script src="./scripts/add-task.js"></script>
+</body>
+</html>

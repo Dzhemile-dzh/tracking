@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Task Tracker",
+  "version": "1.0",
+  "description": "A Chrome extension to track tasks",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "options.html"
+  },
+  "options_page": "add-task.html",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  }
+}

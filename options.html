@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracking Extension</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/pages/tasks.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Task Tracking Extension</h2>
+        <h3>Current Active Tasks</h2>
+        <div class="link-container">
+            <button id="openOptions">View All Tasks</button>
+        </div>
+        <table id="tasksTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Time Estimate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tasks will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="./scripts/options.js"></script>
+</body>
+</html>

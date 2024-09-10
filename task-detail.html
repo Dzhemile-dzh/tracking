@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Details</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/pages/task-detail.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2 id="task-title">Task Title</h2>
+    <p id="task-description">Task Description</p>
+
+    <div class="time-management">
+      <h3>Time Management</h3>
+      <button id="start-pause-btn">Start</button>
+      <p id="time-remaining">Time Remaining: 0 hours</p>
+      <div id="progress-container">
+        <label for="progress">Progress:</label>
+        <progress id="task-progress" value="0" max="100"></progress>
+      </div>
+    </div> 
+
+    <div class="subtasks">
+      <h3>Subtasks:</h3>
+      <ul id="subtask-list">
+        <!-- Subtasks will be dynamically inserted here -->
+      </ul>
+    </div>
+
+    <div class="task-actions">
+      <!-- Back Button Added -->
+      <button id="back-btn">Back</button>
+      <button id="complete-task-btn">Mark as Complete</button>
+    </div>
+  </div>
+
+  <script src="./scripts/task-detail.js"></script>
+</body>
+</html>
