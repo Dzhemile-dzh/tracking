@@ -1,14 +1,13 @@
-/* Color Palette */
 :root {
-    --primary-dark: #232946;
-    --primary-light: #b8c1ec;
-    --accent: #c75881;
-    --button-bg: #11062c;
-    --button-bg-hover: #785353;
-    --text-light: #fffffe;
+    --primary-dark: #232946; 
+    --primary-light: #b8c1ec; 
+    --accent: #c75881; 
+    --button-bg: #11062c; 
+    --button-bg-hover: #785353; 
+    --text-light: #fffffe; 
     --border-color: #ccc; 
-    --focus-border: #2e2361;
-    --textarea-bg: #b8c1ec;
+    --focus-border: #2e2361; 
+    --textarea-bg: #b8c1ec; 
 }
 
 .form-container {
@@ -18,10 +17,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
     color: var(--text-light);
+    margin-bottom: 20px;
 }
 
 label {
@@ -32,7 +33,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"],
+input[type="email"],
+input[type="password"],
 textarea {
     width: 100%;
     padding: 0.8rem;
@@ -41,6 +43,7 @@ textarea {
     border-radius: 4px;
     font-size: 1rem;
     background-color: var(--primary-light);
+    box-sizing: border-box;
 }
 
 input:focus,
@@ -72,10 +75,21 @@ button:hover {
     background-color: var(--button-bg-hover);
 }
 
-.subtask-container {
-    margin-bottom: 10px;
+a {
+    color: var(--accent);
+    text-decoration: none;
 }
 
-.subtask-container input {
-    width: calc(100% - 22px);
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    color: var(--text-light);
+}
+
+#message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-light);
 }

@@ -1,24 +1,36 @@
+/* Color Palette */
+:root {
+  --primary-dark: #232946;
+  --primary-light: #b8c1ec;
+  --accent: #c75881;
+  --button-bg-delete: #7b4c51;
+  --button-bg-delete-hover: #c82333;
+  --button-bg-view-details: #ecb8cb;
+  --button-bg-view-details-hover: #7d3d54;
+  --button-bg-add: #c75881;
+  --button-bg-add-hover: #0a1649; 
+  --text-light: #ffffff;
+  --border-light: #ddd;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
 }
 
-table,
-th,
-td {
-  border: 1px solid #ddd;
+table, th, td {
+  border: 1px solid var(--border-light);
 }
 
-th,
-td {
+th, td {
   padding: 0.75rem;
   text-align: left;
 }
 
 thead {
-  background-color: #232946;
-  color: #fff;
+  background-color: var(--primary-dark);
+  color: var(--text-light);
 }
 
 thead th {
@@ -26,7 +38,7 @@ thead th {
 }
 
 tr:nth-child(even) {
-  background-color: #b8c1ec;
+  background-color: var(--primary-light);
 }
 
 li {
@@ -35,13 +47,13 @@ li {
 }
 
 input[type="checkbox"] {
-  accent-color: #c75881; 
+  accent-color: var(--accent);
   transform: scale(1.2);
 }
 
 button {
-  background-color: #232946;
-  color: white;
+  background-color: var(--primary-dark);
+  color: var(--text-light);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -51,34 +63,45 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
 }
 
 button.delete {
-  background-color: #7b4c51;
+  background-color: var(--button-bg-delete);
 }
 
 button.delete:hover {
-  background-color: #c82333;
+  background-color: var(--button-bg-delete-hover);
 }
 
 button.view-details {
-  background-color: #ecb8cb;
-  color: #232946;
+  background-color: var(--button-bg-view-details);
+  color: var(--primary-dark);
 }
 
 button.view-details:hover {
-  background-color: #7d3d54;
+  background-color: var(--button-bg-view-details-hover);
 }
 
 button.add-button {
-  background-color: #c75881;
+  background-color: var(--accent);
 }
 
 button.add-button:hover {
-  background-color: #0a1649;
+  background-color: var(--button-bg-add-hover);
 }
 
 a.add-button-a {
   text-decoration: none;
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+a.add-button-a:hover {
+  background-color: var(--button-bg-add-hover);
 }

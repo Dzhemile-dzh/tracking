@@ -1,8 +1,23 @@
+/* Color Palette */
+:root {
+  --primary-dark: #232946;
+  --primary-light: #b8c1ec;
+  --accent: #c75881;
+  --button-bg: #ecb8cb;
+  --button-bg-hover: #c75881;
+  --button-bg-back: #6e6cfc;
+  --button-bg-back-hover: #5755d9;
+  --text-light: #ffffff;
+  --text-dark: #232946;
+  --text-muted: #f5f5f5;
+  --subtasks-text: #aliceblue; 
+}
+
 .sidebar {
   width: 300px;
   padding: 20px;
-  background-color: #232946;
-  border-left: 1px solid #ccc;
+  background-color: var(--primary-dark);
+  border-left: 1px solid var(--text-muted);
 }
 
 #progress-container {
@@ -10,29 +25,29 @@
 }
 
 .time-management {
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 }
 
 #task-progress {
   width: 100%;
-  background-color: #c75881;
-  color: #fff;
+  background-color: var(--accent);
+  color: var(--text-light);
 }
 
 progress::-webkit-progress-bar {
-  background-color: #b8c1ec; 
+  background-color: var(--primary-light);
 }
 
 progress::-webkit-progress-value {
-  background-color: #c75881; 
+  background-color: var(--accent);
 }
 
 progress::-moz-progress-bar {
-  background-color: #c75881;
+  background-color: var(--accent);
 }
 
 p, label {
-  color: antiquewhite;
+  color: var(--text-light);
 }
 
 .subtasks ul {
@@ -42,11 +57,11 @@ p, label {
 
 .subtasks li {
   margin-bottom: 5px;
-  color: aliceblue;
+  color: var(--subtasks-text);
 }
 
 input[type="checkbox"] {
-  accent-color: #c75881; 
+  accent-color: var(--accent);
   transform: scale(1.2);
 }
 
@@ -56,33 +71,33 @@ input[type="checkbox"] {
 
 button {
   padding: 10px;
-  background-color: #ecb8cb;
-  color: #232946;
+  background-color: var(--button-bg);
+  color: var(--text-dark);
   border-radius: 4px;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #c75881;
+  background-color: var(--button-bg-hover);
 }
 
 #complete-task-btn {
-  background-color: #b8c1ec;
+  background-color: var(--primary-light);
   width: 100%;
 }
 
 #back-btn {
-  background-color: #6e6cfc;
+  background-color: var(--button-bg-back);
   margin-bottom: 10px;
   width: 100%;
 }
 
 #back-btn:hover {
-  background-color: #5755d9;
+  background-color: var(--button-bg-back-hover);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: white;
+  color: var(--text-light);
   text-align: left;
 }

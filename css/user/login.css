@@ -1,29 +1,39 @@
 /* Color Palette */
 :root {
-    --primary-dark: #232946;
-    --primary-light: #b8c1ec;
-    --accent: #c75881;
+    --primary-dark: #232946; 
+    --primary-light: #b8c1ec; 
+    --accent: #c75881; 
     --button-bg: #11062c;
-    --button-bg-hover: #785353;
-    --text-light: #fffffe;
+    --button-bg-hover: #785353; 
+    --text-light: #fffffe; 
     --border-color: #ccc; 
-    --focus-border: #2e2361;
-    --textarea-bg: #b8c1ec;
+    --focus-border: #2e2361; 
 }
 
-.form-container {
+.login-container {
     background-color: var(--primary-dark);
-    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    padding: 2rem;
+    max-width: 400px;
     width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Headings */
+h1 {
     color: var(--text-light);
+    margin-bottom: 20px;
 }
 
+/* Checkbox */
+input[type="checkbox"] {
+    accent-color: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Labels */
 label {
     display: block;
     font-size: 1rem;
@@ -31,35 +41,39 @@ label {
     color: var(--text-light);
 }
 
+/* Inputs */
 input[type="text"],
-input[type="number"],
-textarea {
+input[type="password"] {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    font-size: 1rem;
     background-color: var(--primary-light);
+    box-sizing: border-box;
+    font-size: 1rem;
 }
 
-input:focus,
-textarea:focus {
+input:focus {
     outline: none;
     border-color: var(--focus-border);
 }
 
-textarea {
-    resize: vertical;
-    min-height: 80px;
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.remember-me input {
+    margin-right: 5px;
 }
 
 button {
-    display: inline-block;
     background-color: var(--button-bg);
     color: var(--text-light);
-    padding: 0.75rem 1.5rem;
     border: none;
+    padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
@@ -72,10 +86,12 @@ button:hover {
     background-color: var(--button-bg-hover);
 }
 
-.subtask-container {
-    margin-bottom: 10px;
+#message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-light);
 }
 
-.subtask-container input {
-    width: calc(100% - 22px);
+p {
+    color: var(--text-light);
 }
