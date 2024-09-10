@@ -23,5 +23,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.getElementById('openOptions').addEventListener('click', () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL('tasks.html') });
+    chrome.tabs.create({ url: chrome.runtime.getURL('login.html') });
 });

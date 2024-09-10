@@ -27,10 +27,10 @@ mongoose.connect(mongoUri)
 
 // Session configuration
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'weasley42', // Use a strong, unique key in production
+  secret: process.env.SESSION_SECRET || 'weasley42',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Set to true in production with HTTPS
+  cookie: { secure: false } 
 }));
 
 // User schema
