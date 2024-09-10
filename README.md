@@ -20,9 +20,6 @@ npm install
 Run the project:
 
 To start the server, simply run:
-
-bash
-Копиране на код
 node server.js
 The server will start at http://localhost:3000.
 
