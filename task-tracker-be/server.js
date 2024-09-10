@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
 require('dotenv').config();  // Load environment variables
 
 const app = express();
@@ -23,6 +25,23 @@ mongoose.connect(mongoUri)
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+// Session configuration
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'weasley42', // Use a strong, unique key in production
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set to true in production with HTTPS
+}));
+
+// User schema
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  rememberMe: { type: Boolean, default: false }
+});
+
+const User = mongoose.model('User', userSchema);
+
 // Task schema
 const taskSchema = new mongoose.Schema({
   title: String,
@@ -34,9 +53,15 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model('Task', taskSchema);
 
-// Routes
+// Middleware for authentication
+function authenticate(req, res, next) {
+  if (req.session.userId) {
+    return next();
+  }
+  res.status(401).json({ message: 'Unauthorized' });
+}
 
-// Create task
+// Routes for tasks
 app.post('/tasks', async (req, res) => {
   const task = new Task(req.body);
   await task.save();
@@ -90,6 +115,52 @@ app.put('/tasks/:id', async (req, res) => {
 app.delete('/tasks/:id', async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
   res.json({ message: 'Task deleted' });
+});
+
+// Routes for user authentication
+app.post('/register', async (req, res) => {
+  const { username, password } = req.body;
+  
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ username, password: hashedPassword });
+    await user.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error registering user', error });
+  }
+});
+
+app.post('/login', async (req, res) => {
+  const { username, password, rememberMe } = req.body;
+  
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    req.session.userId = user._id;
+    req.session.rememberMe = rememberMe;
+
+    res.json({ message: 'Login successful' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error logging in', error });
+  }
+});
+
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ message: 'Error logging out', error: err });
+    }
+    res.json({ message: 'Logout successful' });
+  });
 });
 
 // Start server
