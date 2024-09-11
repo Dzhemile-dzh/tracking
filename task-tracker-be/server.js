@@ -154,6 +154,16 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.get('/check-session', (req, res) => {
+  if (req.session.userId) {
+      // User is logged in
+      res.status(200).json({ loggedIn: true });
+  } else {
+      // User is not logged in
+      res.status(401).json({ loggedIn: false });
+  }
+});
+
 app.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {

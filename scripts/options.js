@@ -22,6 +22,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-document.getElementById('openOptions').addEventListener('click', () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL('login.html') });
+document.getElementById('openOptions').addEventListener('click', async () => {
+    try {
+        const response = await fetch('http://localhost:3000/check-session', {
+            credentials: 'include'
+        });
+
+        if (response.ok) {
+            // User is logged in, redirect to tasks.html
+            chrome.tabs.create({ url: chrome.runtime.getURL('tasks.html') });
+        } else {
+            // User is not logged in, redirect to login.html
+            chrome.tabs.create({ url: chrome.runtime.getURL('login.html') });
+        }
+    } catch (error) {
+        console.error('Error checking session:', error);
+        chrome.tabs.create({ url: chrome.runtime.getURL('login.html') });
+    }
 });
